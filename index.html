@@ -1,91 +1,289 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Sou Cristão e Conheço a Bíblia</title>
-
+<meta name="description" content="Quiz bíblico interativo para aprender a Palavra de Deus. Teste seu conhecimento com perguntas, desafios, ranking e jogos educativos.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="style.css">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 </head>
-
 <body>
 
 <header>
+  <div class="nav-container">
+    <img src="imagem/logo.png" class="logo" alt="Logo">
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#versiculo" class="nav-link">Versículo do Dia</a></li>
+        <li><a href="#contacto" class="nav-link">Contato</a></li>
+        <li><a href="#donativos" class="nav-link">Doações</a></li>
+      </ul>
+    </nav>
+  </div>
 
-<img src="imagem/logo.png" class="logo">
+  <h1>Sou Cristão e Conheço a Bíblia</h1>
+  <p class="sub">Quiz bíblico interativo para aprender a Palavra de Deus</p>
+  
+  <p class="versao-android">Versão Android Disponível.</p>
 
-<h1>Sou Cristão e Conheço a Bíblia</h1>
-
-<p class="sub">
-Quiz bíblico interativo para aprender a Palavra de Deus
-</p>
-
-<div class="rating">
-⭐⭐⭐⭐⭐ 4.8
-</div>
-
+  <div class="download-qrcode">
+    <a href="https://github.com/Isaac-Kiangolo/Conheco-Biblia/releases/download/v1.0.0.0/ConhecoBiblia.apk" 
+	
+class="download-fixo" target="_blank">
+📥 Clique aqui para baixar
+</a>
+    <a class="botao header-botao" id="download-btn" href="https://github.com/Isaac-Kiangolo/Conheco-Biblia/releases/download/v1.0.0.0/ConhecoBiblia.apk" download>
+      📥 Clique aqui para baixar
+    </a>
+    <canvas id="qrcode"></canvas>
+  </div>
+  
+  <div class="rating">⭐⭐⭐⭐⭐ 4.8</div>
 </header>
 
-<section class="app">
+<main id="home">
 
+ <section id="sobre" class="sobre">
+  <h2>Sobre o Aplicativo</h2>
 
-<img src="imagem/tela1" class="tela1">
-<img src="imagem/tela3" class="tela2">
-<img src="imagem/tela2" class="tela3">
+  <p>
+    <strong>Sou Cristão e Conheço a Bíblia</strong> é um aplicativo de quiz bíblico
+    desenvolvido para ajudar cristãos a aprender mais sobre a Palavra de Deus
+    de forma interativa e divertida.
+  </p>
 
-<div class="descricao">
+  <p>
+    O aplicativo apresenta perguntas sobre personagens bíblicos, histórias,
+    versículos e curiosidades das Escrituras, incentivando o estudo da Bíblia
+    através de desafios e jogos educativos.
+  </p>
 
-<h2>Sobre o aplicativo</h2>
-
-<p>
-Aplicativo cristão com perguntas bíblicas, desafios, ranking e jogos
-para testar seu conhecimento da Bíblia.
-</p>
-
-<a class="botao" href="https://github.com/Isaac-Kiangolo/Conheco-Biblia/releases/download/v1.0.0.0/ConhecoBiblia.apk">
-📥 Baixar APK
-</a>
-
-</div>
+  <p>
+    Com diferentes modos de jogo, ranking de jogadores e sistema de conquistas,
+    o aplicativo torna o aprendizado bíblico mais dinâmico e motivador.
+  </p>
 
 </section>
 
-<section class="features">
+  <!-- Funcionalidades -->
+  <section id="funcionalidades" class="funcionalidades">
 
 <h2>Funcionalidades</h2>
 
-<div class="grid">
+<div class="grid-3">
 
 <div class="card">
-📖 Perguntas bíblicas
+<h3>Perguntas Rápidas</h3>
+<p>Responda questões bíblicas em ritmo acelerado e teste seu conhecimento.</p>
 </div>
 
 <div class="card">
-🏆 Ranking de jogadores
+<h3>Modo Carreira</h3>
+<p>Suba de nível, desbloqueie conquistas e evolua no jogo.</p>
 </div>
 
 <div class="card">
-🎮 Jogos educativos
+<h3>Multijogador</h3>
+<p>Jogue com amigos ou com pessoas aleatórias online.</p>
 </div>
 
 <div class="card">
-🌙 Modo escuro
+<h3>Curiosidades Bíblicas</h3>
+<p>Aprenda fatos interessantes sobre personagens e histórias da Bíblia.</p>
+</div>
+
+<div class="card">
+<h3>Perfil do Usuário</h3>
+<p>Visualize pontuação, estatísticas e conquistas.</p>
+</div>
+
+<div class="card">
+<h3>Ranking Global</h3>
+<p>Compare seu desempenho com jogadores do mundo todo.</p>
 </div>
 
 </div>
 
 </section>
 
-<footer>
+  
 
-<p>
-© 2026 Sou Cristão e Conheço a Bíblia
-</p>
+  <!-- Telas do App -->
+  <section class="app-screens" id="app-screens">
+    <h2>📲 Telas do Aplicativo</h2>
+    <div class="screens-carousel">
+      <button class="prev">◀</button>
+      <div class="screens-wrapper">
+        <div class="screen-card active">
+          <img src="imagem/tela_inicial.jpg" alt="Tela Inicial">
+          <p>Tela Inicial – Início rápido ou acesso ao modo carreira.</p>
+        </div>
+        <div class="screen-card">
+          <img src="imagem/tela_carreira.jpg" alt="Modo Carreira">
+          <p>Modo Carreira – Evolua através de níveis e desafios diários.</p>
+        </div>
+        <div class="screen-card">
+          <img src="imagem/tela_multijogador.jpg" alt="Multijogador">
+          <p>Multijogador – Partidas em tempo real contra amigos ou adversários.</p>
+        </div>
+        <div class="screen-card">
+          <img src="imagem/tela_perfil.jpg" alt="Perfil do Usuário">
+          <p>Perfil – Estatísticas, conquistas e progresso pessoal.</p>
+        </div>
+        <div class="screen-card">
+          <img src="imagem/tela_curiosidades.jpg" alt="Curiosidades">
+          <p>Curiosidades – Fatos bíblicos, dicas de estudo e curiosidades sobre versículos.</p>
+        </div>
+      </div>
+      <button class="next">▶</button>
+    </div>
+  </section>
+  
+  
+  <!-- Versículo do Dia -->
+  <section class="versiculo" id="versiculo">
+    <h2>Versículo do Dia</h2>
+    <div class="versiculo-carousel">
+      <div class="versiculo-card active">
+         
+        <p>"Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito..." – João 3:16</p>
+      </div>
+      <div class="versiculo-card">
+        
+        <p>"O Senhor é meu pastor, nada me faltará." – Salmo 23:1</p>
+      </div>
+      <div class="versiculo-card">
+        
+        <p>"Posso todas as coisas naquele que me fortalece." – Filipenses 4:13</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="funcionalidades animar">
+  <section class="stats">
+
+<div class="stat">
+<h3>10K+</h3>
+<p>Downloads</p>
+</div>
+
+<div class="stat">
+<h3>4.8 ⭐</h3>
+<p>Avaliação</p>
+</div>
+
+<div class="stat">
+<h3>500+</h3>
+<p>Perguntas Bíblicas</p>
+</div>
+
+</section>
+
+  <!-- Contato -->
+  <section class="contacto" id="contacto">
+    <h2>Contato</h2>
+    <p>Envie-nos uma mensagem: <a href="mailto:contato@soucristao.com">contato@soucristao.com</a></p>
+    <form action="#" method="POST" class="contact-form">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu email" required>
+      <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+      <button type="submit" class="botao">Enviar</button>
+    </form>
+  </section>
+
+  <section class="donativos" id="donativos">
+
+  <div class="donativos-container">
+
+    <h2>Doações</h2>
+<i class="doacao-info">
+💡 <strong> <i>Sabias quê?</strong> </i> A tua doação ajuda a manter o aplicativo atualizado e com novos conteúdos bíblicos.
+</i>
+    <p>
+      Se você deseja apoiar o desenvolvimento do aplicativo
+      <strong>Sou Cristão e Conheço a Bíblia</strong>,
+      qualquer contribuição é bem-vinda.
+    </p>
+
+    <a href="https://wa.me/244931034274?text=Olá,%20gostaria%20de%20apoiar%20o%20desenvolvimento%20do%20aplicativo."
+       target="_blank"
+       class="botao-doar">
+       💚 Doar via WhatsApp
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+ <footer class="footer">
+
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>Sou Cristão e Conheço a Bíblia</h3>
+      <p>
+        Aplicativo de quiz bíblico criado para incentivar o estudo
+        da Palavra de Deus de forma interativa e divertida.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#funcionalidades">Funcionalidades</a></li>
+        <li><a href="#versiculo">Versículo do Dia</a></li>
+        <li><a href="#contacto">Contato</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Redes Sociais</h4>
+
+      <div class="social-icons">
+
+        <a href="https://www.facebook.com/profile.php?id=61565453023545" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+
+        <a href="https://wa.me/244931034274?text=Olá,%20gostaria%20de%20apoiar%20o%20desenvolvimento%20do%20aplicativo." target="_blank">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <a href="#" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="mailto:Isaackiangolo@gmail.com">
+          <i class="fas fa-envelope"></i>
+        </a>
+
+        <a href="https://github.com/Isaac-Kiangolo" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Sou Cristão e Conheço a Bíblia | Todos os direitos reservados</p>
+  </div>
 
 </footer>
 
+<button id="topo">↑</button>
+
+<button id="theme-toggle" aria-label="Alternar modo claro/escuro">🌙</button>
+
+<script src="script.js"></script>
 </body>
 </html>
