@@ -1,118 +1,523 @@
-body{
-
-font-family: Arial;
-margin:0;
-background:#f4f4f4;
-text-align:center;
-
-}
-
+ /* ===== Reset e corpo ===== */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; }
+body{ background-color:#f9f9f9; color:#333; line-height:1.6; transition: background-color 0.3s, color 0.3s; }
+a{text-decoration:none; color:inherit;}
+ 
+ 
+ 
+ /* Header */
 header{
-
-background:#222;
-color:white;
-padding:40px;
-
+  position: relative;
+  text-align: center;
+  padding: 3rem 1rem 6rem;
+  background: linear-gradient(135deg, #6fb1fc, #4364f7);
+  color: #fff;
 }
 
-.logo{
-
-width:120px;
-
+header .logo{
+  width: 120px;
+  margin-bottom: 1rem;
 }
 
-.sub{
-
-font-size:18px;
-opacity:0.8;
-
+header h1{
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-.rating{
-
-color:gold;
-font-size:20px;
-margin-top:10px;
-
+header .sub{
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
 
-.app{
-
-display:flex;
-justify-content:center;
-align-items:center;
-gap:40px;
-padding:40px;
-flex-wrap:wrap;
-
+header .versao-android{
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #ffcc00;
 }
 
-.mockup{
-
-width:250px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
-
+/* Container QR + botão */
+.download-qrcode {
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente */
+  gap: 1.5rem;             /* espaço entre botão e QR */
+  flex-wrap: wrap;         /* empilha no mobile */
+  margin-bottom: 1.5rem;
 }
 
-.descricao{
-
-max-width:400px;
-
+header .header-botao{
+  padding: 0.8rem 1.5rem;
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s, background-color 0.3s;
 }
 
-.botao{
-
-display:inline-block;
-background:#28a745;
-color:white;
-padding:15px 35px;
-margin-top:20px;
-font-size:20px;
-text-decoration:none;
-border-radius:10px;
-transition:0.3s;
-
+header .header-botao:hover{
+  transform: translateY(-3px);
+  background-color: #e6b800;
 }
 
-.botao:hover{
-
-background:#1f7d35;
-
+#qrcode{
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.features{
-
-padding:40px;
-background:white;
-
+/* Responsividade */
+@media(max-width:768px){
+  .download-qrcode{
+    flex-direction: column; /* empilha QR abaixo do botão no mobile */
+  }
+  #qrcode{
+    width: 100px;
+    height: 100px;
+  }
 }
 
-.grid{
+/* Responsividade */
+@media (max-width:768px){
+  .download-qrcode {
+    flex-direction: column; /* empilha botão e QR em mobile */
+  }
+  #qrcode{
+    width: 100px;
+    height: 100px;
+  }
+}
 
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-max-width:800px;
+/* Avaliação */
+header .rating {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Nav Menu */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-menu li a {
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+  background-color: #ffcc00;
+  color: #000;
+}
+
+/* Responsividade */
+@media (max-width:768px){
+  .download-qrcode{
+    flex-direction: column;
+  }
+  #qrcode{
+    width: 100px;
+    height: 100px;
+  }
+  header h1{
+    font-size:1.6rem;
+  }
+  header .sub, .android-available{
+    font-size:0.95rem;
+  }
+}
+ 
+ 
+/* Frase "Versão Android Disponível" */
+.android-available {
+  font-size: 1rem;
+  color: #ffcc00; /* mesma cor do botão para destaque */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* QR Code */
+#qrcode {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+
+/* ===== Botão Header ===== */
+header .header-botao{ position:absolute; bottom:-1.5rem; left:50%; transform:translateX(-50%); padding:0.8rem 1.5rem; background-color:#ffcc00; color:#000; font-weight:bold; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.2); z-index:10; transition: transform 0.3s, background-color 0.3s; }
+header .header-botao:hover{ transform:translateX(-50%) translateY(-3px); background-color:#e6b800; }
+
+/* ===== Seção Sobre / Mockups ===== */
+.app{ display:flex; flex-wrap:wrap; gap:2rem; margin-bottom:3rem; justify-content:center; }
+.app .descricao{ flex:1; min-width:220px; max-width:400px; }
+.app .descricao h2{ font-size:1.8rem; margin-bottom:1rem; color:#4364f7; }
+.app .descricao p{ font-size:1rem; margin-bottom:1.5rem; }
+.app .mockups{ display:flex; flex-direction:column; gap:1rem; flex:1; min-width:220px; max-width:400px; }
+.app .mockup{ width:100%; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition:transform 0.3s; }
+.app .mockup:hover{ transform:scale(1.05); }
+
+/* ===== QR Code ===== */ 
+.qr-section canvas {
+  width: 120px;
+  height: 120px;
+}
+
+@media(max-width:480px){
+  .qr-section canvas {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* ===== Funcionalidades ===== */
+.features{text-align:center; margin-bottom:3rem;}
+.features h2{ font-size:1.8rem; margin-bottom:2rem; color:#4364f7; }
+.features .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1.5rem; }
+.features .card{ background-color:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); font-size:1.1rem; transition:transform 0.3s, box-shadow 0.3s; cursor:default; }
+.features .card:hover{ transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+
+/* ===== Versículo do Dia ===== */
+.versiculo{text-align:center; margin:3rem 0;}
+.versiculo h2{ font-size:1.8rem; color:#4364f7; margin-bottom:1.5rem; }
+.versiculo-carousel{ position:relative; max-width:400px; margin:0 auto; overflow:hidden; height:250px; }
+.versiculo-card{ position:absolute; top:0; left:0; width:100%; opacity:0; transition:opacity 1s ease-in-out; background-color:#fff; border-radius:12px; padding:1rem; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+.versiculo-card.active{ opacity:1; }
+.versiculo-card img{ width:100%; border-radius:12px; margin-bottom:0.8rem; }
+.versiculo-card p{ font-size:1rem; color:#333; }
+
+/* ===== Telas do App ===== */
+.app-screens{text-align:center; margin:3rem 0;}
+.app-screens h2{ font-size:1.8rem; color:#4364f7; margin-bottom:2rem; }
+.screens-carousel{ position:relative; max-width:350px; margin:0 auto; display:flex; align-items:center; overflow:hidden; }
+.screens-wrapper{ display:flex; transition:transform 0.7s ease; }
+.screen-card{ min-width:100%; flex-shrink:0; background-color:#fff; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); padding:1rem; margin:0 0.5rem; text-align:center; transition: transform 0.3s, box-shadow 0.3s; }
+.screen-card:hover{ transform:translateY(-5px); box-shadow:0 8px 25px rgba(0,0,0,0.15); }
+.screen-card img{ width:180px; border-radius:12px; margin-bottom:0.5rem; }
+.screen-card p{ font-size:0.9rem; color:#333; }
+.screens-carousel button{ position:absolute; top:50%; transform:translateY(-50%); background-color:#4364f7; color:#fff; border:none; border-radius:50%; padding:0.6rem 0.8rem; cursor:pointer; z-index:10; transition:background-color 0.3s; }
+.screens-carousel button:hover{ background-color:#3650c2; }
+.screens-carousel .prev{ left:0; }
+.screens-carousel .next{ right:0; }
+
+/* ===== Contato ===== */
+.contact-form{ display:flex; flex-direction:column; gap:1rem; max-width:500px; margin:1rem auto 3rem; }
+.contact-form input, .contact-form textarea{ padding:0.8rem 1rem; border-radius:8px; border:1px solid #ccc; font-size:1rem; width:100%; transition:border 0.3s, background-color 0.3s, color 0.3s; }
+.contact-form input:focus, .contact-form textarea:focus{ outline:none; border-color:#4364f7; }
+.contact-form textarea{ min-height:120px; resize:vertical; }
+.contact-form button{ padding:0.8rem 1.5rem; background-color:#4364f7; color:#fff; font-weight:bold; border:none; border-radius:8px; cursor:pointer; transition:background-color 0.3s, transform 0.2s; }
+.contact-form button:hover{ background-color:#3650c2; transform:translateY(-2px); }
+
+/* ===== Doações ===== */
+.donativos{text-align:center; margin:3rem 0;}
+.donativos h2{ font-size:1.8rem; color:#4364f7; margin-bottom:1rem; }
+.donativos p{ margin-bottom:1.5rem; font-size:1rem; }
+.donativos .botao{ padding:0.8rem 2rem; background-color:#ffcc00; color:#000; font-weight:bold; border-radius:12px; display:inline-block; transition: background-color 0.3s, transform 0.2s; }
+.donativos .botao:hover{ background-color:#e6b800; transform:translateY(-2px); }
+
+/* ===== Footer ===== */
+
+
+.footer{
+background:#1a1a2e;
+color:#fff;
+padding:50px 20px 20px;
+}
+
+.footer-container{
+max-width:1100px;
 margin:auto;
-
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:40px;
 }
 
-.card{
-
-background:#f8f8f8;
-padding:20px;
-border-radius:10px;
-font-size:18px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
-
+.footer p{
+color:#ccc;
+line-height:1.6;
 }
 
-footer{
+.footer ul{
+list-style:none;
+padding:0;
+}
 
-background:#222;
-color:white;
-padding:20px;
+.footer ul li{
+margin-bottom:8px;
+}
+
+.footer ul li a{
+color:#ccc;
+text-decoration:none;
+}
+
+.footer ul li a:hover{
+color:#ffcc00;
+}
+
+/* Redes sociais */
+.social-icons{
+display:flex;
+gap:15px;
+margin-top:10px;
+}
+
+.social-icons a{
+font-size:22px;
+color:#fff;
+transition:0.3s;
+}
+
+.social-icons a:hover{
+color:#ffcc00;
+transform:scale(1.2);
+}
+
+/* Rodapé final */
+.footer-bottom{
+text-align:center;
 margin-top:40px;
+border-top:1px solid #333;
+padding-top:15px;
+font-size:0.9rem;
+color:#aaa;
+}
 
+/* BOTÃO VOLTAR AO TOPO */
+#topo{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#4364f7;
+color:#fff;
+border:none;
+padding:12px 16px;
+border-radius:50%;
+font-size:18px;
+cursor:pointer;
+display:none;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+#topo:hover{
+background:#ffcc00;
+color:#000;
+}
+
+/* Responsivo */
+@media(max-width:800px){
+
+.footer-container{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.social-icons{
+justify-content:center;
+}
+
+}
+
+/* ===== Botão Dark Mode ===== */
+#theme-toggle{ position:fixed; bottom:2rem; right:2rem; padding:0.8rem 1rem; font-size:1.5rem; border:none; border-radius:50%; background-color:#4364f7; color:#fff; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:100; transition: background-color 0.3s, transform 0.3s; }
+#theme-toggle:hover{ background-color:#3650c2; transform:scale(1.1); }
+
+/* ===== Responsividade ===== */
+@media(max-width:768px){
+  .app{ flex-direction:column; align-items:center; }
+  .app .descricao, .app .mockups{ width:100%; max-width:300px; }
+  .versiculo-card, .contact-form{ width:90%; }
+  .donativos .botao{ width:80%; font-size:1rem; }
+  footer .footer-links{ flex-direction:column; gap:1rem; }
+}
+
+/* ===== Dark Mode ===== */
+body.dark-mode{ background-color:#121212; color:#e0e0e0; }
+body.dark-mode header{ background:linear-gradient(135deg,#1e1e1e,#333); color:#fff; }
+body.dark-mode .app .descricao h2, body.dark-mode .features h2, body.dark-mode .versiculo h2, body.dark-mode .app-screens h2{ color:#ffcc00; }
+body.dark-mode .header-botao, body.dark-mode .app .descricao .botao, body.dark-mode .donativos .botao{ background-color:#ffcc00; color:#000; }
+body.dark-mode .header-botao:hover, body.dark-mode .app .descricao .botao:hover, body.dark-mode .donativos .botao:hover{ background-color:#e6b800; }
+body.dark-mode .features .card, body.dark-mode .versiculo-card, body.dark-mode .screen-card{ background-color:#1e1e1e; color:#e0e0e0; box-shadow:0 4px 12px rgba(255,255,255,0.05); }
+body.dark-mode .contact-form input, body.dark-mode .contact-form textarea{ background-color:#2a2a2a; border:1px solid #555; color:#e0e0e0; }
+body.dark-mode .contact-form input:focus, body.dark-mode .contact-form textarea:focus{ border-color:#ffcc00; }
+body.dark-mode #theme-toggle{ background-color:#ffcc00; color:#000; }
+body.dark-mode #theme-toggle:hover{ background-color:#e6b800; }
+
+
+.sobre{
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.sobre h2{
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.sobre p{
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+
+/* ===== Scroll suave ===== */
+html{ scroll-behavior: smooth; }
+
+
+/* Seções */
+section{
+padding:60px 20px;
+text-align:center;
+}
+
+h2{
+font-size:2rem;
+margin-bottom:30px;
+}
+
+/* GRID 3 */
+.grid-3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+max-width:1100px;
+margin:auto;
+}
+
+/* Cards */
+.card{
+background:#ffffff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+margin-bottom:10px;
+color:#4364f7;
+}
+
+/* Versículo */
+.versiculo-card{
+max-width:700px;
+margin:auto;
+background:#f4f6ff;
+padding:30px;
+border-radius:12px;
+font-size:1.2rem;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+#versiculo-ref{
+display:block;
+margin-top:15px;
+font-weight:bold;
+color:#4364f7;
+}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+
+.grid-3{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.grid-3{
+grid-template-columns:1fr;
+}
+
+}
+
+
+.botao-doar{
+display:inline-block;
+padding:12px 25px;
+background:#25D366;
+color:#fff;
+font-weight:bold;
+border-radius:10px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.botao-doar:hover{
+background:#1ebe5d;
+}
+
+.download-fixo{
+position:fixed;
+bottom:30px;
+left:30px;
+background:#e6b800;
+color:#000;
+padding:12px 20px;
+border-radius:30px;
+font-weight:bold;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+z-index:999;
+transition:0.3s;
+}
+
+.download-fixo:hover{
+background:#1e7e34;
+}
+
+.animar{
+opacity:0;
+transform:translateY(40px);
+transition:0.6s;
+}
+
+.animar.show{
+opacity:1;
+transform:translateY(0);
+}
+
+
+.nav-menu a{
+text-decoration:none;
+padding:8px 14px;
+border-radius:6px;
+color:#fff;
+transition:0.3s;
+}
+
+.nav-menu a:hover{
+background:#ffffff33;
+}
+
+/* link ativo */
+.nav-menu a.active{
+background:#ffcc00;
+color:#000;
+font-weight:bold;
 }
